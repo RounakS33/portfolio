@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable react/no-unescaped-entities */
 'use client'
 
 import { Button } from "@/components/ui/button"
@@ -241,7 +240,7 @@ export default function Portfolio() {
           <div className="flex flex-col-reverse md:flex-row items-center justify-between gap-8">
             <div className="space-y-4">
               <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl dark:text-white">Rounak Singh</h1>
-              <h2 className="text-xl text-muted-foreground">AI/ML Developer & Data Scientist</h2>
+              <h2 className="text-xl text-muted-foreground">AI/ML Developer &amp; Data Scientist</h2>
               <p className="max-w-[600px] text-muted-foreground dark:text-white/70">
                 I specialize in building AI/ML solutions and data-driven applications with a focus on practical implementation and research.
               </p>
@@ -477,7 +476,7 @@ export default function Portfolio() {
       <footer className="border-t">
         <div className="container mx-auto max-w-7xl flex h-14 items-center justify-center">
           <p className="text-sm text-muted-foreground dark:text-white/70">
-            © 2024 Rounak Singh. All rights reserved.
+            &copy; 2024 Rounak Singh. All rights reserved.
           </p>
         </div>
       </footer>
