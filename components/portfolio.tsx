@@ -453,7 +453,7 @@ export default function Portfolio() {
                     disabled={formStatus.loading}
                   />
                   {formStatus.error && (
-                    <p className="text-sm text-destructive">{formStatus.error}</p>
+                    <p className="text-sm text-destructive">Failed to send message. Please try again later.</p>
                   )}
                   {formStatus.success && (
                     <p className="text-sm text-green-600 dark:text-green-400">{formStatus.success}</p>
