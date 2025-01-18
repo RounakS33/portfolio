@@ -266,29 +266,17 @@ export default function Portfolio() {
           <Card>
             <CardContent className="p-6">
               <div className="relative border-l border-gray-200 dark:border-gray-700">
-              <div className="mb-8 ml-4">
+                <div className="mb-8 ml-4">
                   <div className="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -left-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
                   <time className="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">Jan 2025 - Feb 2025</time>
                   <h3 className="text-lg font-semibold text-gray-900 dark:text-white mt-2">Deep Learning Intern</h3>
                   <p className="text-base font-normal text-gray-500 dark:text-gray-400 mt-1">Microsoft, SAP-AICTE</p>
-                  <ul className="mt-2 list-disc list-inside space-y-1 text-base text-muted-foreground dark:text-white/70">
-                    <li>Developed and deployed computer vision models for real-time object detection</li>
-                    <li>Improved model accuracy by 35% using transfer learning techniques</li>
-                    <li>Led a team of 3 ML engineers in developing NLP solutions</li>
+                  <ul className="mt-2 list-disc list-outside space-y-1 text-base text-muted-foreground dark:text-white/70 ml-5">
+                    <li>Developed an automated system to detect and classify potato diseases using Convolutional Neural Networks (CNNs).</li>
+                    <li>Improved the model's accuracy from an initial 70% to over 85% through iterative testing.</li>
+                    <li>Developed an interactive web application for easy access and use of the disease detection system.</li>
                   </ul>
                 </div>
-                {/* <div className="mb-8 ml-4">
-                  <div className="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -left-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
-                  <time className="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">Jan 2025 - Feb 2025</time>
-                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white mt-2">Deep Learning Intern</h3>
-                  <p className="text-base font-normal text-gray-500 dark:text-gray-400 mt-1">Microsoft, SAP-AICTE</p>
-                  <ul className="mt-2 list-disc list-inside space-y-1 text-base text-muted-foreground dark:text-white/70">
-                    <li>Developed and deployed computer vision models for real-time object detection</li>
-                    <li>Improved model accuracy by 35% using transfer learning techniques</li>
-                    <li>Led a team of 3 ML engineers in developing NLP solutions</li>
-                  </ul>
-                </div> */}
-                {/* You can add more experience items here following the same structure */}
               </div>
             </CardContent>
           </Card>
@@ -367,11 +355,11 @@ export default function Portfolio() {
           </Button>
         </div>
         <div>
-          <h3 className="text-2xl font-semibold">Machine Learning Engineer Nanodegree</h3>
-          <p className="text-sm text-muted-foreground dark:text-white/60">Udacity</p>
-          <p className="text-base text-muted-foreground dark:text-white/70 mt-1">Issued Jun 2023 - No Expiration</p>
+          <h3 className="text-2xl font-semibold">Google Data Analytics</h3>
+          <p className="text-sm text-muted-foreground dark:text-white/60">Coursera - Google</p>
+          <p className="text-base text-muted-foreground dark:text-white/70 mt-1">Issued Dec 2024 - No Expiration</p>
           <Button variant="link" className="h-auto p-0 mt-2" asChild>
-            <Link href="https://confirm.udacity.com/XXXXX" target="_blank" rel="noopener noreferrer">
+            <Link href="https://www.coursera.org/account/accomplishments/professional-cert/48XVC4LMWASG" target="_blank" rel="noopener noreferrer">
               Verify Certificate →
             </Link>
           </Button>
