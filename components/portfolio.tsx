@@ -349,7 +349,7 @@ export default function Portfolio() {
           <p className="text-sm text-muted-foreground dark:text-white/60">Coursera - IBM</p>
           <p className="text-base text-muted-foreground dark:text-white/70 mt-1">Issued Dec 2024 - No Expiration</p>
           <Button variant="link" className="h-auto p-0 mt-2" asChild>
-            <Link href="https://www.coursera.org/account/accomplishments/specialization/certificate/W0IKXC53U9B3" target="_blank" rel="noopener noreferrer">
+            <Link href="https://www.coursera.org/account/accomplishments/professional-cert/W0IKXC53U9B3" target="_blank" rel="noopener noreferrer">
               Verify Certificate →
             </Link>
           </Button>
