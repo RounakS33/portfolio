@@ -1,10 +1,11 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 'use client'
 
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
+import { Card, CardContent} from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { Briefcase, Code2, Download, ExternalLink, Github, Linkedin, Mail, MapPin, Phone, School, Send, User2, Moon, Sun, Menu } from 'lucide-react'
+import { Briefcase, Code2, Download, Github, Linkedin, Mail, MapPin, Phone, School, Send, User2, Moon, Sun, Menu } from 'lucide-react'
 import Image from "next/image"
 import Link from "next/link"
 import { useRef, useState, useEffect } from "react"
