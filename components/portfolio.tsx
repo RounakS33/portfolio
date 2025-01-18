@@ -1,10 +1,10 @@
 'use client'
 
-import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { Send } from "lucide-react"
+import { Briefcase, Code2, Download, ExternalLink, Github, Linkedin, Mail, MapPin, Phone, School, Send, User2, Moon, Sun, Menu } from 'lucide-react'
 import Image from "next/image"
 import Link from "next/link"
 import { useRef, useState, useEffect } from "react"
@@ -20,6 +20,16 @@ export default function Portfolio() {
 
   const [isDarkMode, setIsDarkMode] = useState(false)
   const [activeSection, setActiveSection] = useState<string>('about')
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  })
+  const [formStatus, setFormStatus] = useState({
+    loading: false,
+    error: '',
+    success: ''
+  })
 
   useEffect(() => {
     // Check system preference on mount
@@ -70,6 +80,39 @@ export default function Portfolio() {
       behavior: 'smooth'
     })
     setActiveSection(section)
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setFormStatus({ loading: true, error: '', success: '' })
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      })
+
+      const data = await response.json()
+
+      if (!response.ok) {
+        throw new Error(data.message || 'Failed to send message')
+      }
+
+      setFormStatus({
+        loading: false,
+        error: '',
+        success: data.message
+      })
+      setFormData({ name: '', email: '', message: '' })
+
+    } catch (error) {
+      setFormStatus({
+        loading: false,
+        error: error instanceof Error ? error.message : 'Failed to send message',
+        success: ''
+      })
+    }
   }
 
   return (
@@ -399,13 +442,41 @@ export default function Portfolio() {
                     </Link>
                   </div>
                 </div>
-                <form className="space-y-4">
-                  <Input placeholder="Name" />
-                  <Input type="email" placeholder="Email" />
-                  <Textarea placeholder="Message" />
-                  <Button className="w-full gap-2">
-                    <Send className="h-4 w-4" />
-                    Send Message
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <Input 
+                    placeholder="Name" 
+                    value={formData.name}
+                    onChange={e => setFormData(prev => ({ ...prev, name: e.target.value }))}
+                    disabled={formStatus.loading}
+                  />
+                  <Input 
+                    type="email" 
+                    placeholder="Email" 
+                    value={formData.email}
+                    onChange={e => setFormData(prev => ({ ...prev, email: e.target.value }))}
+                    disabled={formStatus.loading}
+                  />
+                  <Textarea 
+                    placeholder="Message" 
+                    value={formData.message}
+                    onChange={e => setFormData(prev => ({ ...prev, message: e.target.value }))}
+                    disabled={formStatus.loading}
+                  />
+                  {formStatus.error && (
+                    <p className="text-sm text-destructive">{formStatus.error}</p>
+                  )}
+                  {formStatus.success && (
+                    <p className="text-sm text-green-600 dark:text-green-400">{formStatus.success}</p>
+                  )}
+                  <Button type="submit" className="w-full gap-2" disabled={formStatus.loading}>
+                    {formStatus.loading ? (
+                      <span>Sending...</span>
+                    ) : (
+                      <>
+                        <Send className="h-4 w-4" />
+                        Send Message
+                      </>
+                    )}
                   </Button>
                 </form>
               </div>
