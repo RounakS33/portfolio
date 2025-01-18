@@ -1,15 +1,14 @@
 'use client'
 
+import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { Briefcase, Code2, Download, ExternalLink, Github, Linkedin, Mail, MapPin, Phone, School, Send, User2, Moon, Sun, Menu } from 'lucide-react'
+import { Send } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { useRef, useState, useEffect } from "react"
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/sheet"
-import { ContactFormData } from '@/types/contact'
 
 export default function Portfolio() {
   const aboutRef = useRef<HTMLElement>(null)
@@ -21,19 +20,6 @@ export default function Portfolio() {
 
   const [isDarkMode, setIsDarkMode] = useState(false)
   const [activeSection, setActiveSection] = useState<string>('about')
-  const [formData, setFormData] = useState<ContactFormData>({
-    name: '',
-    email: '',
-    message: ''
-  })
-  const [formStatus, setFormStatus] = useState<{
-    type: 'success' | 'error' | null;
-    message: string;
-  }>({
-    type: null,
-    message: ''
-  })
-  const [isSubmitting, setIsSubmitting] = useState(false)
 
   useEffect(() => {
     // Check system preference on mount
@@ -84,41 +70,6 @@ export default function Portfolio() {
       behavior: 'smooth'
     })
     setActiveSection(section)
-  }
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-    setFormStatus({ type: null, message: '' })
-
-    try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      })
-
-      const data = await response.json()
-
-      if (!response.ok) {
-        throw new Error(data.error || 'Failed to send message')
-      }
-
-      setFormStatus({
-        type: 'success',
-        message: 'Message sent successfully!'
-      })
-      setFormData({ name: '', email: '', message: '' })
-    } catch (error) {
-      setFormStatus({
-        type: 'error',
-        message: error instanceof Error ? error.message : 'Failed to send message'
-      })
-    } finally {
-      setIsSubmitting(false)
-    }
   }
 
   return (
@@ -448,36 +399,13 @@ export default function Portfolio() {
                     </Link>
                   </div>
                 </div>
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <Input
-                    placeholder="Name"
-                    value={formData.name}
-                    onChange={(e) => setFormData(prev => ({ ...prev, name: e.target.value }))}
-                    required
-                  />
-                  <Input
-                    type="email"
-                    placeholder="Email"
-                    value={formData.email}
-                    onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
-                    required
-                  />
-                  <Textarea
-                    placeholder="Message"
-                    value={formData.message}
-                    onChange={(e) => setFormData(prev => ({ ...prev, message: e.target.value }))}
-                    required
-                  />
-                  {formStatus.message && (
-                    <p className={`text-sm ${
-                      formStatus.type === 'success' ? 'text-green-500' : 'text-red-500'
-                    }`}>
-                      {formStatus.message}
-                    </p>
-                  )}
-                  <Button className="w-full gap-2" disabled={isSubmitting}>
+                <form className="space-y-4">
+                  <Input placeholder="Name" />
+                  <Input type="email" placeholder="Email" />
+                  <Textarea placeholder="Message" />
+                  <Button className="w-full gap-2">
                     <Send className="h-4 w-4" />
-                    {isSubmitting ? 'Sending...' : 'Send Message'}
+                    Send Message
                   </Button>
                 </form>
               </div>
