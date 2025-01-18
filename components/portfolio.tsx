@@ -73,7 +73,7 @@ export default function Portfolio() {
 
   const scrollToSection = (ref: React.RefObject<HTMLElement>, section: string) => {
     const offset = window.innerWidth < 768 ? 60 : 80 // Smaller offset for mobile
-    const elementPosition = ref.current?.getBoundingClientRect().top
+    const elementPosition = ref.current?.getBoundingClientRect().top ?? 0
     const offsetPosition = elementPosition + window.pageYOffset - offset
     
     window.scrollTo({
