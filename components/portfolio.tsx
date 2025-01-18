@@ -273,7 +273,7 @@ export default function Portfolio() {
                   <p className="text-base font-normal text-gray-500 dark:text-gray-400 mt-1">Microsoft, SAP-AICTE</p>
                   <ul className="mt-2 list-disc list-outside space-y-1 text-base text-muted-foreground dark:text-white/70 ml-5">
                     <li>Developed an automated system to detect and classify potato diseases using Convolutional Neural Networks (CNNs).</li>
-                    <li>Improved the model's accuracy from an initial 70% to over 85% through iterative testing.</li>
+                    <li>Improved model accuracy from an initial 70% to over 85% through iterative testing.</li>
                     <li>Developed an interactive web application for easy access and use of the disease detection system.</li>
                   </ul>
                 </div>
