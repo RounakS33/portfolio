@@ -410,13 +410,13 @@ export default function Portfolio() {
                   <div className="flex items-center space-x-4">
                     <Mail className="h-4 w-4" />
                     <Link href="mailto:singhrounak927@gmail.com" className="text-muted-foreground hover:underline dark:text-white/70 dark:hover:text-white">
-                    singhrounak927@gmail.com
+                      Email: singhrounak927@gmail.com
                     </Link>
                   </div>
                   <div className="flex items-center space-x-4">
                     <Phone className="h-4 w-4" />
                     <Link href="tel:+919007790033" className="text-muted-foreground hover:underline dark:text-white/70 dark:hover:text-white">
-                      +91 9007790033
+                      Phone: +91 9007790033
                     </Link>
                   </div>
                   <div className="flex items-center space-x-4">
@@ -427,7 +427,7 @@ export default function Portfolio() {
                       rel="noopener noreferrer"
                       className="text-muted-foreground hover:underline dark:text-white/70 dark:hover:text-white"
                     >
-                      linkedin.com/in/rounaksingh33
+                      LinkedIn: Rounak Singh
                     </Link>
                   </div>
                 </div>
